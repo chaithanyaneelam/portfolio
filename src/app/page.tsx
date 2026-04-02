@@ -546,88 +546,102 @@ export default function Portfolio() {
         {/* 📂 Projects */}
         <section
           id="projects"
-          className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-800 relative"
+          className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black to-gray-800 py-20 px-4"
         >
           <h2 className="text-5xl font-bold mb-16 text-purple-400">
             My Projects
           </h2>
-          <div className="relative w-full max-w-3xl">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-4 border-dotted border-purple-500"></div>
-            <div className="flex flex-col gap-16">
-              {[
-                {
-                  title: "Retail Shop Management",
-                  link: "https://retail-shop-management-kbx5.vercel.app/login",
-                  repo: "https://github.com/chatithanya66/retail-shop-management",
-                  desc: "A shop system with authentication, inventory tracking, and sales reports.",
-                },
-                {
-                  title: "Travel Planning Platform",
-                  link: "https://routaviva.onrender.com/modules/signup/signup.html",
-                  repo: "https://github.com/chatithanya66/routaviva",
-                  desc: "Trip planning app with routing, budget management, and weather integration.",
-                },
-                {
-                  title: "URL Shortener",
-                  link: "https://shorturl-826q.onrender.com/",
-                  repo: "https://github.com/chatithanya66/url-shortener",
-                  desc: "A simple and fast URL shortener for quick sharing.",
-                },
-              ].map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className={`relative w-5/6 md:w-2/3 bg-gray-900 border border-gray-700 rounded-2xl shadow-lg p-6 ${
-                    i % 2 === 0 ? "ml-auto" : "mr-auto"
-                  }`}
-                >
-                  <h3 className="text-2xl font-bold text-purple-300">
-                    {p.title}
-                  </h3>
-                  <p className="text-gray-400 mt-2">{p.desc}</p>
-                  <div className="flex gap-4 mt-4">
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      className="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700"
-                    >
-                      View Project
-                    </a>
-                    <a
-                      href={p.repo}
-                      target="_blank"
-                      className="px-4 py-2 bg-gray-800 border border-purple-500 text-purple-300 rounded-lg hover:bg-gray-700"
-                    >
-                      View Code
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Retail Core Services",
+                link: "https://github.com/chaithanyaneelam/retail-core-service",
+                repo: "https://github.com/chaithanyaneelam/retail-core-service",
+                desc: "Scalable backend architecture using Node.js, TypeScript, PostgreSQL. Strict Controller-Service-Repository pattern, secured with Zod & Argon2 + JWT. complex inventory modules using PostGIS. (Currently Building)",
+              },
+              {
+                title: "Nexus Upskill",
+                link: "https://nexskill.vercel.com",
+                repo: "https://github.com/chaithanyaneelam/Nexus-Platform/tree/main/nexus-upskill",
+                desc: "Full-stack SaaS platform using Node.js, TypeScript, MongoDB. High-performance Vanilla JS frontend with RBAC. Architected Google API 'Media Bridge' to automate classroom scheduling.",
+              },
+              {
+                title: "Retail Shop Management",
+                link: "https://drive.google.com/file/d/13ndqBHiiRqYeVWDkiNRJp3G5dkAm8rHU/view",
+                repo: "https://github.com/chatithanya66/retail-shop-management",
+                desc: "A shop system with authentication, inventory tracking, and sales reports.",
+              },
+              {
+                title: "Travel Planning Platform",
+                link: "https://drive.google.com/file/d/19Df_rnYDCmKzNCHA_3iY8WqC65iGydsT/view",
+                repo: "https://github.com/chatithanya66/routaviva",
+                desc: "Trip planning app with routing, budget management, and weather integration.",
+              },
+              {
+                title: "URL Shortener",
+                link: "https://shorturl-826q.onrender.com/",
+                repo: "https://github.com/chatithanya66/url-shortener",
+                desc: "A simple and fast URL shortener for quick sharing.",
+              },
+            ].map((p, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-gray-900 border border-gray-700 rounded-2xl shadow-lg flex flex-col p-6 hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all"
+              >
+                <h3 className="text-2xl font-bold text-purple-300">
+                  {p.title}
+                </h3>
+                <p className="text-gray-400 mt-3 flex-grow">{p.desc}</p>
+                <div className="flex gap-4 mt-6">
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    className="flex-1 text-center px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 font-medium transition"
+                  >
+                    View Project
+                  </a>
+                  <a
+                    href={p.repo}
+                    target="_blank"
+                    className="flex-1 text-center px-4 py-2 bg-gray-800 border border-purple-500 text-purple-300 rounded-lg hover:bg-gray-700 font-medium transition"
+                  >
+                    View Code
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
         {/* 🛠 Skills */}
         <section
           id="skills"
-          className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 to-black"
+          className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 to-black py-20 px-8"
         >
           <motion.h2 className="text-5xl font-bold mb-8 text-purple-400">
             Tech Stack
           </motion.h2>
-          <div className="flex flex-wrap gap-6 justify-center max-w-3xl">
+          <div className="flex flex-wrap gap-6 justify-center max-w-4xl">
             {[
               "HTML",
               "CSS",
               "JavaScript",
+              "TypeScript",
               "React.js",
               "Next.js",
               "Node.js",
               "Express.js",
+              "PostgreSQL",
               "MySQL",
+              "MongoDB",
               "Tailwind CSS",
               "Python",
+              "Zod",
+              "Argon2",
+              "JWT",
+              "PostGIS",
             ].map((skill) => (
               <motion.span
                 key={skill}
@@ -742,14 +756,14 @@ export default function Portfolio() {
           {/* Social Links */}
           <div className="flex gap-6 mt-10">
             <a
-              href="https://github.com/chatithanya66"
+              href="https://github.com/chaithanyaneelam"
               target="_blank"
               className="text-gray-400 hover:text-purple-400 transition text-xl"
             >
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/chatithanya66"
+              href="https://linkedin.com/in/chaithanyaneelam"
               target="_blank"
               className="text-gray-400 hover:text-purple-400 transition text-xl"
             >
