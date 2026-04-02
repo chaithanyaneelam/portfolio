@@ -46,10 +46,6 @@ body {
   animation: slowSpin 12s linear infinite;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @keyframes bubble {
   0% {
     transform: translateY(100vh) scale(0);

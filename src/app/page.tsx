@@ -442,6 +442,19 @@ const sections = [
 
 export default function Portfolio() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [bubbles, setBubbles] = useState<
+    { scale: number; duration: number; left: string }[]
+  >([]);
+
+  useEffect(() => {
+    setBubbles(
+      [...Array(20)].map(() => ({
+        scale: Math.random() * 0.8 + 0.4,
+        duration: Math.random() * 10 + 8,
+        left: `${Math.random() * 100}%`,
+      })),
+    );
+  }, []);
 
   return (
     <div className="flex min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white relative">
@@ -489,21 +502,21 @@ export default function Portfolio() {
         >
           {/* Bubble background */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
+            {bubbles.map((bubble, i) => (
               <motion.div
                 key={i}
                 className="absolute w-6 h-6 bg-purple-500 rounded-full opacity-20 blur-xl"
                 initial={{
                   y: "100vh",
-                  scale: Math.random() * 0.8 + 0.4,
+                  scale: bubble.scale,
                 }}
                 animate={{ y: -100 }}
                 transition={{
-                  duration: Math.random() * 10 + 8,
+                  duration: bubble.duration,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                style={{ left: `${Math.random() * 100}%` }}
+                style={{ left: bubble.left }}
               />
             ))}
           </div>
@@ -561,26 +574,26 @@ export default function Portfolio() {
               },
               {
                 title: "Nexus Upskill",
-                link: "https://nexskill.vercel.com",
+                link: "https://nexskill.vercel.app",
                 repo: "https://github.com/chaithanyaneelam/Nexus-Platform/tree/main/nexus-upskill",
                 desc: "Full-stack SaaS platform using Node.js, TypeScript, MongoDB. High-performance Vanilla JS frontend with RBAC. Architected Google API 'Media Bridge' to automate classroom scheduling.",
               },
               {
                 title: "Retail Shop Management",
                 link: "https://drive.google.com/file/d/13ndqBHiiRqYeVWDkiNRJp3G5dkAm8rHU/view",
-                repo: "https://github.com/chatithanya66/retail-shop-management",
+                repo: "https://github.com/chaithanyaneelam/retail-shop-management",
                 desc: "A shop system with authentication, inventory tracking, and sales reports.",
               },
               {
                 title: "Travel Planning Platform",
                 link: "https://drive.google.com/file/d/19Df_rnYDCmKzNCHA_3iY8WqC65iGydsT/view",
-                repo: "https://github.com/chatithanya66/routaviva",
+                repo: "https://github.com/chaithanyaneelam/routaviva",
                 desc: "Trip planning app with routing, budget management, and weather integration.",
               },
               {
                 title: "URL Shortener",
                 link: "https://shorturl-826q.onrender.com/",
-                repo: "https://github.com/chatithanya66/url-shortener",
+                repo: "https://github.com/chaithanyaneelam/url-shortener",
                 desc: "A simple and fast URL shortener for quick sharing.",
               },
             ].map((p, i) => (

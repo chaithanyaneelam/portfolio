@@ -46,7 +46,7 @@ export default function Projects() {
             show: { transition: { staggerChildren: 0.12 } },
           }}
         >
-          {projects.map((p, i) => (
+          {projects.map((p) => (
             <motion.article
               key={p.id}
               whileHover={{ scale: 1.03, translateY: -6 }}

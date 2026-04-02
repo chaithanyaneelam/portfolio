@@ -6,7 +6,7 @@ import { Sun, Moon, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Nav() {
-  const [open, setOpen] = useState(false);
+  const [, setOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {

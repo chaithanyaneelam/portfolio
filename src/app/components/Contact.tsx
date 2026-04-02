@@ -2,13 +2,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({ name: "", email: "", message: "" });
 
-  const submit = async (e: any) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     // simulate or call your API
@@ -17,7 +17,7 @@ export default function Contact() {
       await new Promise((r) => setTimeout(r, 800));
       alert("Message sent — I'll get back to you!");
       setData({ name: "", email: "", message: "" });
-    } catch (e) {
+    } catch {
       alert("Oops. Try again.");
     }
     setLoading(false);
